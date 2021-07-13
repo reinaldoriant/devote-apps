@@ -39,6 +39,9 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+            
+            task = ""
+            hiddenKeyboard()
         }
     }
     
@@ -54,7 +57,7 @@ struct ContentView: View {
             }
         }
     }
-     // MARK : - Body
+    // MARK : - Body
     var body: some View {
         NavigationView {
             VStack {
@@ -84,9 +87,9 @@ struct ContentView: View {
                             Text(item.task ?? "")
                                 .font(.headline)
                                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
+                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
                         }//: List ITem
                     }
                     .onDelete(perform: deleteItems)
@@ -98,13 +101,7 @@ struct ContentView: View {
                         EditButton()
                     }
                     #endif
-                    
-                    ToolbarItem(placement:.navigationBarTrailing) {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
-                        }
-                    }
-            }//: Toolbar
+                }//: Toolbar
             }//: VStack
         }//: Navigation
     }
