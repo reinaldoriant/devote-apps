@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     //MARK : - Property
-    
+    @State var task: String = ""
     // Fetching Data
     @Environment(\.managedObjectContext) private var viewContext// Inject data
     
@@ -25,12 +25,13 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            newItem.task = task
+            newItem.completion = false
+            newItem.id = UUID()
             
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -52,25 +53,54 @@ struct ContentView: View {
      // MARK : - Body
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                }
-                .onDelete(perform: deleteItems)
-            }//: List
-            .toolbar {
-                #if os(iOS)
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
-                #endif
-                
-                ToolbarItem(placement:.navigationBarTrailing) {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+            VStack {
+                VStack(spacing: 16){
+                    TextField("New Task", text: $task)
+                        .padding()
+                        .background(Color(UIColor.systemGray6))
+                        .cornerRadius(10)
+                    Button(action: {
+                        addItem()
+                    }, label: {
+                        Spacer()
+                        Text("SAVE")
+                        Spacer()
+                    })
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .background(Color.pink)
+                    .cornerRadius(10)
+                }//: VStack
+                .padding()
+                List {
+                    ForEach(items) { item in
+                        VStack (alignment: .leading) {
+                            Text(item.task ?? "")
+                                .font(.headline)
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                        }//: List ITem
                     }
-                }
-            } //: Toolbar
+                    .onDelete(perform: deleteItems)
+                }//: List
+                .navigationBarTitle("Daily Task",displayMode: .large)
+                .toolbar {
+                    #if os(iOS)
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                    }
+                    #endif
+                    
+                    ToolbarItem(placement:.navigationBarTrailing) {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                    }
+            }//: Toolbar
+            }//: VStack
         }//: Navigation
     }
 }
