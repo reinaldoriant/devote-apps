@@ -92,14 +92,7 @@ struct ContentView: View {
                     // MARK : - tasks
                     List {
                         ForEach(items) { item in
-                            VStack (alignment: .leading) {
-                                Text(item.task ?? "")
-                                    .font(.headline)
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                                    .font(.footnote)
-                                    .foregroundColor(.gray)
-                            }//: List ITem
+                            ListRowItemView(item: item)
                         }
                         .onDelete(perform: deleteItems)
                     }//: List
@@ -108,11 +101,13 @@ struct ContentView: View {
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
                 }//: VStack
-                
+                .blur(radius: showNewTaskItem ? 8.0 : 0 , opaque: false)
+                .transition(.move(edge: .bottom))
+                .animation(.easeOut(duration: 0.5))
                 // MARK : - New task item
                 
                 if showNewTaskItem{
-                    BlankView()
+                    BlankView(backgroundColor: isDarkMode ? Color.black : Color.gray, backgroundOpacity: isDarkMode ? 0.3 : 0.5)
                         .onTapGesture{
                             showNewTaskItem = false
                         }
@@ -125,7 +120,8 @@ struct ContentView: View {
             }
             .navigationBarTitle("Daily Task",displayMode: .large)
             .navigationBarHidden(true)
-            .background(BackgroundImageView())
+            .background(BackgroundImageView()
+                            .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false))
             .background(backgroundGradient.ignoresSafeArea(.all))
         }//: Navigation
         .navigationViewStyle(StackNavigationViewStyle())
