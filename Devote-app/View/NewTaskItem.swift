@@ -13,6 +13,7 @@ struct NewTaskItem: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @State private var task: String = ""
+    @Binding var isShowing: Bool
     
     private var isButtonDisabled: Bool {
         task.isEmpty
@@ -36,6 +37,7 @@ struct NewTaskItem: View {
             
             task = ""
             hiddenKeyboard()
+            isShowing = false
         }
     }
     
@@ -79,7 +81,7 @@ struct NewTaskItem: View {
 
 struct NewTaskItem_Previews: PreviewProvider {
     static var previews: some View {
-        NewTaskItem()
+        NewTaskItem(isShowing: .constant(true))
             .previewDevice("iPhone 11")
             .background(Color.gray.edgesIgnoringSafeArea(.all))
     }
