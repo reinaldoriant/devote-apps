@@ -11,6 +11,10 @@ import CoreData
 struct ContentView: View {
     //MARK : - Property
     @State var task: String = ""
+    
+    private var isButtonDisabled: Bool {
+        task.isEmpty
+    }
     // Fetching Data
     @Environment(\.managedObjectContext) private var viewContext// Inject data
     
@@ -66,10 +70,11 @@ struct ContentView: View {
                         Text("SAVE")
                         Spacer()
                     })
+                    .disabled(isButtonDisabled)
                     .padding()
                     .font(.headline)
                     .foregroundColor(.white)
-                    .background(Color.pink)
+                    .background(isButtonDisabled ? Color.gray : Color.pink)
                     .cornerRadius(10)
                 }//: VStack
                 .padding()

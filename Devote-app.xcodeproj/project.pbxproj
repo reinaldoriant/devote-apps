@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5BF6CB4269D78F2007CD9AA /* HiddenKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF6CB3269D78F2007CD9AA /* HiddenKeyboard.swift */; };
 		A5D4F959269D28B4001A9805 /* Devote_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4F958269D28B4001A9805 /* Devote_appApp.swift */; };
 		A5D4F95B269D28B4001A9805 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4F95A269D28B4001A9805 /* ContentView.swift */; };
 		A5D4F95D269D28B5001A9805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D4F95C269D28B5001A9805 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5BF6CB3269D78F2007CD9AA /* HiddenKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HiddenKeyboard.swift; path = "Devote-app/View/HiddenKeyboard.swift"; sourceTree = SOURCE_ROOT; };
 		A5D4F955269D28B4001A9805 /* Devote-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Devote-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D4F958269D28B4001A9805 /* Devote_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devote_appApp.swift; sourceTree = "<group>"; };
 		A5D4F95A269D28B4001A9805 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		A5D4F96E269D296E001A9805 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A5BF6CB3269D78F2007CD9AA /* HiddenKeyboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				A5D4F962269D28B5001A9805 /* Persistence.swift in Sources */,
 				A5D4F95B269D28B4001A9805 /* ContentView.swift in Sources */,
+				A5BF6CB4269D78F2007CD9AA /* HiddenKeyboard.swift in Sources */,
 				A5D4F97C269D719E001A9805 /* Constant.swift in Sources */,
 				A5D4F965269D28B5001A9805 /* Devote_app.xcdatamodeld in Sources */,
 				A5D4F959269D28B4001A9805 /* Devote_appApp.swift in Sources */,
