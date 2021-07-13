@@ -24,6 +24,9 @@
 		A5D4F961269D28B5001A9805 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A5D4F964269D28B5001A9805 /* Devote_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Devote_app.xcdatamodel; sourceTree = "<group>"; };
 		A5D4F966269D28B5001A9805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D4F971269D29B1001A9805 /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
+		A5D4F972269D29B1001A9805 /* sound-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-tap.mp3"; sourceTree = "<group>"; };
+		A5D4F973269D29B1001A9805 /* sound-ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-ding.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +59,15 @@
 		A5D4F957269D28B4001A9805 /* Devote-app */ = {
 			isa = PBXGroup;
 			children = (
+				A5D4F974269D29B6001A9805 /* Sound */,
+				A5D4F96E269D296E001A9805 /* Extension */,
+				A5D4F96D269D2969001A9805 /* Util */,
+				A5D4F96C269D295D001A9805 /* Style */,
 				A5D4F958269D28B4001A9805 /* Devote_appApp.swift */,
 				A5D4F95A269D28B4001A9805 /* ContentView.swift */,
 				A5D4F95C269D28B5001A9805 /* Assets.xcassets */,
-				A5D4F961269D28B5001A9805 /* Persistence.swift */,
+				A5D4F975269D29D9001A9805 /* Model */,
 				A5D4F966269D28B5001A9805 /* Info.plist */,
-				A5D4F963269D28B5001A9805 /* Devote_app.xcdatamodeld */,
 				A5D4F95E269D28B5001A9805 /* Preview Content */,
 			);
 			path = "Devote-app";
@@ -73,6 +79,46 @@
 				A5D4F95F269D28B5001A9805 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A5D4F96C269D295D001A9805 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		A5D4F96D269D2969001A9805 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A5D4F96E269D296E001A9805 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A5D4F974269D29B6001A9805 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				A5D4F973269D29B1001A9805 /* sound-ding.mp3 */,
+				A5D4F971269D29B1001A9805 /* sound-rise.mp3 */,
+				A5D4F972269D29B1001A9805 /* sound-tap.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		A5D4F975269D29D9001A9805 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A5D4F961269D28B5001A9805 /* Persistence.swift */,
+				A5D4F963269D28B5001A9805 /* Devote_app.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
